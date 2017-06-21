@@ -1,0 +1,358 @@
+{
+  "contents": null,
+  "font": null,
+  "height": 5600,
+  "id": "1vhymusvx2srmu96cq693iwqjrb8xswg",
+  "layers": [
+    {
+      "contents": "Bug",
+      "font": "VeneerClean-Reg",
+      "height": 457,
+      "id": "6o3o8bgv84wg4nquxiaj8uc9jkcpb6ck",
+      "layers": [],
+      "name": "bug",
+      "psdPath": "app.activeDocument.layers[0]",
+      "smartObject": null,
+      "type": "Text",
+      "visible": true,
+      "width": 825,
+      "x": 1326,
+      "y": 1432
+    },
+    {
+      "contents": null,
+      "font": null,
+      "height": 0,
+      "id": "81ximgw99682xg47j3kw94kwy4b7lwvj",
+      "layers": [
+        {
+          "contents": null,
+          "font": null,
+          "height": 0,
+          "id": "bqnyl2zfy6da3nhqgk4its02a71yrijz",
+          "layers": [],
+          "name": "Dummy",
+          "psdPath": "app.activeDocument.layers[1].layers[0]",
+          "smartObject": null,
+          "type": "Folder",
+          "visible": true,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "name": "Overlay",
+      "psdPath": "app.activeDocument.layers[1]",
+      "smartObject": null,
+      "type": "Folder",
+      "visible": true,
+      "width": 0,
+      "x": 0,
+      "y": 0
+    },
+    {
+      "contents": null,
+      "font": null,
+      "height": 5600,
+      "id": "5u4n1tggag7fokf21l2rzocgqcznilgy",
+      "layers": [
+        {
+          "contents": null,
+          "font": null,
+          "height": 5594,
+          "id": "tsgx4uu3glb7p9q8yydir1wjdpb2ikla",
+          "layers": [
+            {
+              "contents": null,
+              "font": null,
+              "height": 5594,
+              "id": "2y21lgi0zydi12sqtnlylru4h5t6txqf",
+              "layers": [],
+              "name": "Composition Safebox",
+              "psdPath": "app.activeDocument.layers[2].layers[0].layers[0]",
+              "smartObject": null,
+              "type": "SolidColor",
+              "visible": false,
+              "width": 3500,
+              "x": 0,
+              "y": 3
+            }
+          ],
+          "name": "Safeboxes",
+          "psdPath": "app.activeDocument.layers[2].layers[0]",
+          "smartObject": null,
+          "type": "Safeboxes",
+          "visible": false,
+          "width": 3500,
+          "x": 0,
+          "y": 3
+        },
+        {
+          "contents": null,
+          "font": null,
+          "height": 2719,
+          "id": "i4m3fr6p0kvsr55xx42bg32yg4z65ugu",
+          "layers": [
+            {
+              "contents": "it’s not",
+              "font": "VeneerClean-Reg",
+              "height": 647,
+              "id": "nc43dfjfomn9urccogptlolm9zv4vbs0",
+              "layers": [],
+              "name": "1",
+              "psdPath": "app.activeDocument.layers[2].layers[1].layers[0]",
+              "smartObject": null,
+              "type": "Text",
+              "visible": true,
+              "width": 1808,
+              "x": 848,
+              "y": 1436
+            },
+            {
+              "contents": "me",
+              "font": "VeneerClean-Reg",
+              "height": 405,
+              "id": "ucwta8gowqcgdnqz2ih1213g68dlpow1",
+              "layers": [],
+              "name": "2",
+              "psdPath": "app.activeDocument.layers[2].layers[1].layers[1]",
+              "smartObject": null,
+              "type": "Text",
+              "visible": true,
+              "width": 487,
+              "x": 1505,
+              "y": 2613
+            },
+            {
+              "contents": "it’s you",
+              "font": "VeneerClean-Reg",
+              "height": 639,
+              "id": "z7t2vlfnuh9jmcvjw18ss5aa3kbw69dt",
+              "layers": [],
+              "name": "3",
+              "psdPath": "app.activeDocument.layers[2].layers[1].layers[2]",
+              "smartObject": null,
+              "type": "Text",
+              "visible": true,
+              "width": 1756,
+              "x": 846,
+              "y": 3516
+            }
+          ],
+          "name": "Text",
+          "psdPath": "app.activeDocument.layers[2].layers[1]",
+          "smartObject": null,
+          "type": "Folder",
+          "visible": true,
+          "width": 1810,
+          "x": 846,
+          "y": 1436
+        },
+        {
+          "contents": null,
+          "font": null,
+          "height": 0,
+          "id": "owknfmkbch17hqhz364slizx8vs3b7l2",
+          "layers": [
+            {
+              "contents": null,
+              "font": null,
+              "height": 0,
+              "id": "hvin44i2pnv9kf5o4xkmaxdh6qudcrf0",
+              "layers": [
+                {
+                  "contents": null,
+                  "font": null,
+                  "height": 0,
+                  "id": "3q5jk8wdztndsgqim843nkfkthw0xh5b",
+                  "layers": [],
+                  "name": "replace",
+                  "psdPath": "app.activeDocument.layers[2].layers[2].layers[0].layers[0]",
+                  "smartObject": {
+                    "contents": null,
+                    "font": null,
+                    "height": 5600,
+                    "id": "z6yi36swhnjmqmw7fhhjvm0v9m9or74h",
+                    "layers": [
+                      {
+                        "contents": null,
+                        "font": null,
+                        "height": 0,
+                        "id": "cn5o7fvakznzrddk0xwwj9mrblun94fx",
+                        "layers": [],
+                        "name": "Layer 1",
+                        "psdPath": "app.activeDocument.layers[0]",
+                        "smartObject": null,
+                        "type": "Graphic",
+                        "visible": true,
+                        "width": 0,
+                        "x": 0,
+                        "y": 0
+                      }
+                    ],
+                    "name": "Layer 1.psb",
+                    "psdPath": "app.activeDocument",
+                    "resolution": 300,
+                    "smartObject": null,
+                    "type": "Document",
+                    "visible": true,
+                    "width": 3500,
+                    "x": 0,
+                    "y": 0
+                  },
+                  "type": "Graphic",
+                  "visible": true,
+                  "width": 0,
+                  "x": 0,
+                  "y": 0
+                }
+              ],
+              "name": "Graphics",
+              "psdPath": "app.activeDocument.layers[2].layers[2].layers[0]",
+              "smartObject": null,
+              "type": "Folder",
+              "visible": true,
+              "width": 0,
+              "x": 0,
+              "y": 0
+            }
+          ],
+          "name": "Graphics",
+          "psdPath": "app.activeDocument.layers[2].layers[2]",
+          "smartObject": null,
+          "type": "Folder",
+          "visible": true,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "contents": null,
+          "font": null,
+          "height": 0,
+          "id": "5yslr2zb3diu8sx4cbhcr813cybdd35w",
+          "layers": [
+            {
+              "contents": null,
+              "font": null,
+              "height": 0,
+              "id": "9xdyb9a3cchxokljjvx2wfru2s4ypfpf",
+              "layers": [
+                {
+                  "contents": null,
+                  "font": null,
+                  "height": 0,
+                  "id": "rg0dwybhmvc43k41clpt9guh7mr8oqtw",
+                  "layers": [],
+                  "name": "replace",
+                  "psdPath": "app.activeDocument.layers[2].layers[3].layers[0].layers[0]",
+                  "smartObject": {
+                    "contents": null,
+                    "font": null,
+                    "height": 5600,
+                    "id": "waxjo8143ovtg8xgh07ndlwp8o8gc9jm",
+                    "layers": [
+                      {
+                        "contents": null,
+                        "font": null,
+                        "height": 0,
+                        "id": "vf45607f2d55al0pwobaho0xldpi38r8",
+                        "layers": [],
+                        "name": "replace",
+                        "psdPath": "app.activeDocument.layers[0]",
+                        "smartObject": null,
+                        "type": "Graphic",
+                        "visible": true,
+                        "width": 0,
+                        "x": 0,
+                        "y": 0
+                      }
+                    ],
+                    "name": "replace.psb",
+                    "psdPath": "app.activeDocument",
+                    "resolution": 300,
+                    "smartObject": null,
+                    "type": "Document",
+                    "visible": true,
+                    "width": 3500,
+                    "x": 0,
+                    "y": 0
+                  },
+                  "type": "Graphic",
+                  "visible": true,
+                  "width": 0,
+                  "x": 0,
+                  "y": 0
+                }
+              ],
+              "name": "Background",
+              "psdPath": "app.activeDocument.layers[2].layers[3].layers[0]",
+              "smartObject": null,
+              "type": "Folder",
+              "visible": true,
+              "width": 0,
+              "x": 0,
+              "y": 0
+            }
+          ],
+          "name": "Backgrounds",
+          "psdPath": "app.activeDocument.layers[2].layers[3]",
+          "smartObject": null,
+          "type": "Folder",
+          "visible": true,
+          "width": 0,
+          "x": 0,
+          "y": 0
+        },
+        {
+          "contents": null,
+          "font": null,
+          "height": 5600,
+          "id": "2aajuoivl7ao8i4ivgoz9blczudy61yh",
+          "layers": [
+            {
+              "contents": null,
+              "font": null,
+              "height": 5600,
+              "id": "ypp0i8r021b4zl13haxob363ooyuhljc",
+              "layers": [],
+              "name": "Color",
+              "psdPath": "app.activeDocument.layers[2].layers[4].layers[0]",
+              "smartObject": null,
+              "type": "SolidColor",
+              "visible": true,
+              "width": 3500,
+              "x": 0,
+              "y": 0
+            }
+          ],
+          "name": "Background Color",
+          "psdPath": "app.activeDocument.layers[2].layers[4]",
+          "smartObject": null,
+          "type": "Folder",
+          "visible": true,
+          "width": 3500,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "name": "Design",
+      "psdPath": "app.activeDocument.layers[2]",
+      "smartObject": null,
+      "type": "Folder",
+      "visible": true,
+      "width": 3500,
+      "x": 0,
+      "y": 0
+    }
+  ],
+  "name": "document (3).psd",
+  "psdPath": "app.activeDocument",
+  "resolution": 300,
+  "smartObject": null,
+  "type": "Document",
+  "visible": true,
+  "width": 3500,
+  "x": 0,
+  "y": 0
+}
