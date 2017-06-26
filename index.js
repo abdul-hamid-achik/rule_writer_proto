@@ -13,6 +13,12 @@ var resizeWithLimitsTemplate = 'resizeWithLimits({{layer}}, \
 getWidth({{safebox}})*{{widthLimit}}, getHeight({{safebox}}) * {{heightLimit}});';
 var instanciateLayerTemplate = 'instanciateLayer({{layer}});';
 var makeGroupTemplate = 'rule.makeGroup({{elements}})';
+
+console.log("size individual objects");
+console.log("place in respect to each other");
+console.log("group them");
+console.log("place the group within the canvas");
+
 // initialize({
 //     texts : true,
 // 	graphics: true,
@@ -71,7 +77,7 @@ treeWalker(json, function(layer, tree, index) {
     if (layer.name === 'Text') {
         texts = layer;
     }
-    if (layer.name === 'Graphics') {
+    if (layer.name === 'Graphics' || layer.name === 'Graphic') {
         graphics = layer;
     }
 })
@@ -86,12 +92,15 @@ if (safeboxes.layers.length > 1) {
     rl.question(string, function(answer) {
         // TODO: Log the answer in a database
         selectedSafebox = safeboxes.layers[answer];
-        scriptText = 'var selectedSafebox = safeboxes.layers[' + 1 + ']; \n'
+        scriptText = 'var selectedSafebox = safeboxes.layers[' + answer + ']; \n'
+
+		ruleWriter(list, selectedSafebox);
         rl.close();
     });
 } else {
     selectedSafebox = safeboxes.layers[0];
     scriptText = 'var selectedSafebox = safeboxes.layers[0]; \n'
+	ruleWriter(list, selectedSafebox);
 }
 
 
@@ -157,7 +166,8 @@ var groupElements = function(list, compositionName) {
 var createGap = function(safebox, heightFactor)  {
     result = '\nvar gap = getHeight({{safebox}})*{{heightFactor}};'.replace('{{safebox}}', safebox).replace("{{heightFactor}}", heightFactor);
     return result;
-}
+};
+
 var ruleWriter = function(selections, safebox)  {
     ruleWriter.texts = [];
     ruleWriter.graphics = [];
@@ -195,9 +205,11 @@ var ruleWriter = function(selections, safebox)  {
         }
     });
 
+    // check for each elements gap but first align it on Y 
+
     textsGap /= selectedSafebox.height;
     if (textsGap < 0) {
-    	textsGap *= -1;
+        textsGap *= -1;
     }
     console.log(textsGap)
     scriptText = scriptText + sizeRules + createGap("selectedSafebox", textsGap);
@@ -205,14 +217,14 @@ var ruleWriter = function(selections, safebox)  {
     scriptText = scriptText + grouped;
     // console.log(ruleWriter.textsList, ruleWriter.graphicsList);
     console.log(scriptText);
-}
+};
 
-console.log("size individual objects");
-console.log("place in respect to each other");
-console.log("group them");
-console.log("place the group within the canvas");
+var createGaps = function (list) {
 
-ruleWriter(list, selectedSafebox);
+};
+
+
+// ruleWriter(list, selectedSafebox);
 
 // // console.log(safeboxes.layers[selectedSafebox]);
 // var textsListR = buildLayers(textsList);
