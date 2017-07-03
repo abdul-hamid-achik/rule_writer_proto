@@ -6,11 +6,18 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-var scriptText = '';
+var scriptText = 'initialize({\n\
+    canvas : true,\n\
+    safebox : true,\n\
+    texts : true,\n\
+    graphics : true,\n\
+    initTexts : true,\n\
+    checkVisibility : true\n\
+});\n';
 
 var resizeWithLimitsTemplate = 'resizeWithLimits({{layer}}, \
 1, getHeight({{safebox}})*{{heightFactor}}, \
-getWidth({{safebox}})*{{widthLimit}}, getHeight({{safebox}}) * {{heightLimit}});';
+getWidth({{safebox}}), getHeight({{safebox}}) * {{heightLimit}});';
 var instanciateLayerTemplate = 'instanciateLayer({{layer}});';
 var makeGroupTemplate = 'rule.makeGroup({{elements}})';
 
@@ -21,10 +28,10 @@ console.log("place the group within the canvas");
 
 // initialize({
 //     texts : true,
-// 	graphics: true,
+//  graphics: true,
 //     safebox : true,
 //     canvas : true,
-// 	checkVisibility: true
+//  checkVisibility: true
 // });
 
 // var graphics2 = instanciateLayer(graphics.layers[0]);
@@ -51,6 +58,7 @@ console.log("place the group within the canvas");
 
 // alignHorizontalCenter(composition,canvas);
 // alignVerticalCenter(composition,canvas);
+
 
 var treeWalker = function(tree, fn) {
     var i;
@@ -82,37 +90,7 @@ treeWalker(json, function(layer, tree, index) {
     }
 })
 
-var selectedSafebox;
-if (safeboxes.layers.length > 1) {
-    var string = 'Select a safebox:\n';
-    for (index in safeboxes.layers) {
-        var safebox = safeboxes.layers[index];
-        string = string + index + ') ' + safebox.name + "\n";
-    }
-    rl.question(string, function(answer) {
-        // TODO: Log the answer in a database
-        selectedSafebox = safeboxes.layers[answer];
-        scriptText = 'var selectedSafebox = safeboxes.layers[' + answer + ']; \n'
-
-		ruleWriter(list, selectedSafebox);
-        rl.close();
-    });
-} else {
-    selectedSafebox = safeboxes.layers[0];
-    scriptText = 'var selectedSafebox = safeboxes.layers[0]; \n'
-	ruleWriter(list, selectedSafebox);
-}
-
-
-var textsList = [texts.layers[0], texts.layers[2]];
-
-textsList.sort(function(a, b) {
-    return a.y - b.y;
-})
-var graphicsList = [graphics.layers[0]];
-
-
-var list = [texts.layers[0], texts.layers[1], texts.layers[2], graphics.layers[0]]
+var list = [texts.layers[0], texts.layers[1], texts.layers[2], graphics.layers[0]];
 var buildLayers = function(list) {
     var result = [];
     list.map(function(layer, index) {
@@ -126,12 +104,16 @@ var buildLayers = function(list) {
         } else if (layer.type == "Graphic") {
             tmp.index = 'G' + index;
         }
-        tmp.declaration = 'var ' + tmp.index + " = " + instanciateLayerTemplate.replace("{{layer}}", JSON.stringify(layer));
+
+        tmp.declaration = 'var ' + tmp.index + " = " + instanciateLayerTemplate.replace("{{layer}}", 
+            tmp.index == 'T' + index ? 
+            'texts[\'text' + index + '\']': 
+            'graphics.layers[' + index + ']'
+        );
         result.push(tmp);
     });
     return result;
 }
-
 var sizeElements = function(list, selectedSafebox) {
     var result = [];
     list.map(function(item) {
@@ -142,8 +124,8 @@ var sizeElements = function(list, selectedSafebox) {
         // var heightLimit = item.layer.height;
         result.push(resizeWithLimitsTemplate
             .replace('{{layer}}', item.index)
+            .replace('{{heightFactor}}', heightLimit)
             .replace(/{{safebox}}/g, "selectedSafebox")
-            .replace('{{widthLimit}}', widthLimit)
             .replace('{{heightLimit}}', heightLimit));
     });
     return result.join('\n');
@@ -166,6 +148,11 @@ var groupElements = function(list, compositionName) {
 var createGap = function(safebox, heightFactor)  {
     result = '\nvar gap = getHeight({{safebox}})*{{heightFactor}};'.replace('{{safebox}}', safebox).replace("{{heightFactor}}", heightFactor);
     return result;
+};
+
+
+var createGaps = function (list) {
+
 };
 
 var ruleWriter = function(selections, safebox)  {
@@ -205,23 +192,46 @@ var ruleWriter = function(selections, safebox)  {
         }
     });
 
-    // check for each elements gap but first align it on Y 
-
     textsGap /= selectedSafebox.height;
     if (textsGap < 0) {
         textsGap *= -1;
     }
-    console.log(textsGap)
     scriptText = scriptText + sizeRules + createGap("selectedSafebox", textsGap);
+
     var grouped = groupElements(toBeGrouped);
+
     scriptText = scriptText + grouped;
-    // console.log(ruleWriter.textsList, ruleWriter.graphicsList);
+
     console.log(scriptText);
 };
+var selectedSafebox;
+if (safeboxes.layers.length > 1) {
+    var string = 'Select a safebox:\n';
+    for (index in safeboxes.layers) {
+        var safebox = safeboxes.layers[index];
+        string = string + index + ') ' + safebox.name + "\n";
+    }
+    rl.question(string, function(answer) {
+        // TODO: Log the answer in a database
+        selectedSafebox = safeboxes.layers[answer];
+        scriptText = scriptText + 'var selectedSafebox = safeboxes.layers[' + answer + ']; \n'
 
-var createGaps = function (list) {
+        ruleWriter(list, selectedSafebox);
+        rl.close();
+    });
+} else {
+    selectedSafebox = safeboxes.layers[0];
+    scriptText = scriptText + 'var selectedSafebox = safeboxes.layers[0]; \n'
+    ruleWriter(list, selectedSafebox);
+}
 
-};
+
+var textsList = [texts.layers[0], texts.layers[2]];
+
+textsList.sort(function(a, b) {
+    return a.y - b.y;
+})
+var graphicsList = [graphics.layers[0]];
 
 
 // ruleWriter(list, selectedSafebox);
